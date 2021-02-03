@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 	*, *::before, *::after {
@@ -11,9 +11,16 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Montserrat', sans-serif;
 	}
 
+	html {
+		font-size: 62.5%;
+	}
+
 	body {
 		background-color: ${({ theme }) => theme.base};
 		color: ${({ theme }) => theme.text};
+		 font-size: 16px; 
+		font-size: 1.6rem;
+		line-height: 1.5;
 	}
 `;
 
