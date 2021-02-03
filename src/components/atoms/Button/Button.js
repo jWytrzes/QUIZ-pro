@@ -12,6 +12,7 @@ const Button = styled.button`
 	background-color: ${({ primary, theme }) =>
 		primary ? theme.primary : theme.secondary};
 	color: ${({ primary, theme }) => (primary ? theme.white : theme.primary)};
+	cursor: pointer;
 
 	svg {
 		margin-left: 1.1rem;

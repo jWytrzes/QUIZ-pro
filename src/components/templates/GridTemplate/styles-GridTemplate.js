@@ -6,14 +6,14 @@ export const StyledGrid = styled.div`
 	grid-gap: 2rem;
 
 	@media (min-width: 768px) {
-		grid-template-columns: repeat(2, minmax(1fr, 1fr));
+		grid-template-columns: repeat(2, minmax(200px, 1fr));
 	}
 
 	@media (min-width: 992px) {
-		grid-template-columns: repeat(3, minmax(1fr, 1fr));
+		grid-template-columns: repeat(3, minmax(200px, 1fr));
 	}
 
 	@media (min-width: 1200px) {
-		grid-template-columns: repeat(4, minmax(1fr, 1fr));
+		grid-template-columns: repeat(4, minmax(200px, 1fr));
 	}
 `;

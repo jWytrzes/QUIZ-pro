@@ -10,4 +10,8 @@ export const StyledHeading = styled.div`
 	button {
 		margin-left: auto;
 	}
+
+	@media (min-width: 992px) {
+		margin-bottom: 5rem;
+	}
 `;
