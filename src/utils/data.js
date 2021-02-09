@@ -2,6 +2,9 @@ const data = [
 	{
 		num: 3,
 		title: 'Podstawy języka Kotlin',
+		id: '0',
+		completed: false,
+		questionsNum: 5,
 		questions: [
 			{
 				id: '0',
@@ -144,12 +147,13 @@ const data = [
 				],
 			},
 		],
-		id: '0',
-		completed: false,
 	},
 	{
 		num: 4,
 		title: 'Dziedziczenie',
+		id: '1',
+		completed: false,
+		questionsNum: 5,
 		questions: [
 			{
 				id: '0',
@@ -292,22 +296,22 @@ const data = [
 				],
 			},
 		],
-		id: '1',
-		completed: false,
 	},
 	{
 		num: 1,
 		title: 'Podstawy języka Java',
-		questions: new Array(16),
 		id: '2',
 		completed: 4,
+		questionsNum: 16,
+		questions: new Array(16),
 	},
 	{
 		num: 2,
 		title: 'Podstawy języka Kotlin',
-		questions: new Array(16),
 		id: '3',
 		completed: 14,
+		questionsNum: 16,
+		questions: new Array(16),
 	},
 ];
 

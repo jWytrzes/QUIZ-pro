@@ -18,11 +18,25 @@ export const StyledMarker = styled.button`
 	display: flex;
 	width: 100%;
 	margin-right: 0.3rem;
-	height: 1rem;
-	border-radius: 1rem;
+	height: ${({ active }) => (active ? '2rem' : '1rem')};
+	border-radius: 0.5rem;
 	border: 1px solid
-		${({ theme, done }) => (done ? theme.primary : theme.border)};
-	background: ${({ theme, done }) => (done ? theme.primary : theme.white)};
+		${({ theme, done, result, isCorrect }) =>
+			result && isCorrect != null
+				? isCorrect
+					? theme.success
+					: theme.error
+				: done
+				? theme.primary
+				: theme.border};
+	background: ${({ theme, done, result, isCorrect }) =>
+		result && isCorrect != null
+			? isCorrect
+				? theme.success
+				: theme.error
+			: done
+			? theme.primary
+			: theme.white};
 	cursor: pointer;
 
 	&:last-of-type {

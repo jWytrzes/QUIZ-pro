@@ -46,8 +46,17 @@ const Quiz = () => {
 	};
 
 	const submitQuiz = () => {
-		const countedScore = countScore(quiz.questions);
-		setScore(countedScore);
+		if (!score) {
+			const countedScore = countScore(quiz.questions);
+			setScore(countedScore);
+			let updatedQuiz = quiz;
+			updatedQuiz.questions.push({
+				id: `result-${Math.random() * 10}`,
+				score: countScore,
+				max: quiz.questionsNum,
+			});
+			setActiveQuestion(activeQuestion + 1);
+		}
 	};
 
 	return (
@@ -58,21 +67,19 @@ const Quiz = () => {
 						<NumLabel> Quiz #{quiz.num} </NumLabel>
 						<H2> {quiz.title} </H2>
 					</div>
-					{score != null ? (
-						<ResultBoard score={score} max={quiz.questions.length} />
-					) : (
-						<ActiveQuestion
-							question={quiz.questions[activeQuestion]}
-							activeNum={activeQuestion}
-							check={check}
-						/>
-					)}
+					<ActiveQuestion
+						question={quiz.questions[activeQuestion]}
+						activeNum={activeQuestion}
+						check={check}
+						score={score}
+						max={quiz.questionsNum}
+					/>
 					<ProgressBar
-						questions={quiz.questions.length}
+						questions={quiz.questions}
 						activeQuestion={activeQuestion}
 						changeQuestion={changeQuestion}
 						submitQuiz={submitQuiz}
-						result={score ? true : false}
+						result={score != null ? true : false}
 					/>
 				</div>
 			)}

@@ -6,6 +6,7 @@ export const StyledWrapper = styled.div`
 	margin: 2rem 0;
 	box-shadow: 0 0.3rem 0.6rem ${({ theme }) => theme.shadow};
 	padding: 2rem;
+	min-height: 29.5rem;
 
 	@media (min-width: 992px) {
 		padding: 4rem;

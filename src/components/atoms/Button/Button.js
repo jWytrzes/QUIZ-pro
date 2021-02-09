@@ -12,10 +12,11 @@ const Button = styled.button`
 	background-color: ${({ primary, theme }) =>
 		primary ? theme.primary : theme.secondary};
 	color: ${({ primary, theme }) => (primary ? theme.white : theme.primary)};
-	cursor: pointer;
 	text-decoration: none;
 	min-width: 17.9rem;
 	justify-content: center;
+	opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+	cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
 
 	svg {
 		margin-left: ${({ leftIcon }) => (leftIcon ? 0 : '1.1rem')};
