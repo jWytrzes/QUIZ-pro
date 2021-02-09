@@ -1,19 +1,21 @@
 import { ArrowRight } from 'react-feather';
+import { Link } from 'react-router-dom';
 import Button from '../../atoms/Button/Button';
 import H3 from '../../atoms/H3/H3';
+import NumLabel from '../../atoms/NumLabel/NumLabel';
 import ResultLabel from '../../atoms/ResultLabel/ResultLabel';
-import { StyledId, StyledWrapper, StyledP } from './styles-QuizBox';
+import { StyledWrapper, StyledP } from './styles-QuizBox';
 
-const QuizBox = ({ data, id }) => {
+const QuizBox = ({ data }) => {
 	return (
 		<StyledWrapper>
-			<StyledId> QUIZ #{id + 1} </StyledId>
+			<NumLabel> QUIZ #{data.num} </NumLabel>
 			<H3> {data.title} </H3>
 			<StyledP> {data.questions.length} pytań </StyledP>
 			{data.completed ? (
 				<ResultLabel points={data.completed} max={data.questions.length} />
 			) : (
-				<Button secondary>
+				<Button as={Link} to={`/quiz/${data.id}`}>
 					Rozpocznij <ArrowRight size={18} />
 				</Button>
 			)}

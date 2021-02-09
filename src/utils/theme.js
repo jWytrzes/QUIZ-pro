@@ -8,6 +8,7 @@ const theme = {
 	errorSecondary: 'rgba(230, 84, 84, 0.11)',
 	shadow: 'rgba(126, 27, 225, 0.04)',
 	text: 'rgba(35, 35, 35)',
+	border: 'rgba(35, 35, 35, 0.12)',
 	white: 'rgba(255, 255, 255)',
 };
 

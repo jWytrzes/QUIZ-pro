@@ -13,9 +13,14 @@ const Button = styled.button`
 		primary ? theme.primary : theme.secondary};
 	color: ${({ primary, theme }) => (primary ? theme.white : theme.primary)};
 	cursor: pointer;
+	text-decoration: none;
+	min-width: 17.9rem;
+	justify-content: center;
 
 	svg {
-		margin-left: 1.1rem;
+		margin-left: ${({ leftIcon }) => (leftIcon ? 0 : '1.1rem')};
+		margin-right: ${({ leftIcon }) => (leftIcon ? '1.1rem' : 0)};
+		flex-shrink: 0;
 	}
 `;
 
