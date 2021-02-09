@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, Edit, X } from 'react-feather';
+import { Check, X } from 'react-feather';
 import IconButton from '../../atoms/IconButton/IconButton';
 import Input from '../../atoms/Input/Input';
 import { StyledWrapper } from './styles-AnswerInput';

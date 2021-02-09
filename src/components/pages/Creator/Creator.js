@@ -5,7 +5,7 @@ import MainTemplate from '../../templates/MainTemplate/MainTemplate';
 
 const Creator = () => {
 	const data = {
-		name: 'Podstawy języka Java',
+		name: 'Podstawy języka Java (WIN)',
 	};
 
 	return (
