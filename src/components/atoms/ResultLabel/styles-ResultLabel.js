@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-	padding: 1.8rem 3.2rem;
+	padding: 1.8rem;
 	border-radius: 0.7rem;
 	display: flex;
 	align-items: center;

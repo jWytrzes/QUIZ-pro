@@ -23,7 +23,9 @@ export const FakeInput = styled.label`
 		display: block;
 		width: 1.5rem;
 		height: 1.5rem;
-		background: url(${check});
+		background-color: ${({ theme, disabled }) =>
+			disabled ? '#bbb' : theme.primary};
+		background-image: url(${check});
 		background-size: contain;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -34,6 +36,9 @@ export const FakeInput = styled.label`
 		position: absolute;
 		top: 0;
 		left: 0;
+		transform: scale(0);
+		transition: transform 0.1s ease-out;
+		border-radius: 0.2rem;
 	}
 `;
 
@@ -52,7 +57,8 @@ export const StyledInput = styled.input`
 	z-index: -9999;
 
 	&:checked + ${FakeInput} {
-		background-color: ${({ theme, disabled }) =>
-			disabled ? '#bbb' : theme.primary};
+		&::before {
+			transform: scale(1);
+		}
 	}
 `;

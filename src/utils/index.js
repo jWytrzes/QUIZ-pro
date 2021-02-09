@@ -1,3 +1,6 @@
+export const baseUrl = 'http://localhost:8088/api/v1/';
+export const RESULTS = 'QUIZ_RESULTS';
+
 export const checkIfUserAnswerIsCorrect = (question) => {
 	let correct = 0;
 	for (let i = 0; i < question.answers.length; i++) {
@@ -28,4 +31,13 @@ export const countScore = (questions) => {
 export const checkIfPassed = (score, max) => {
 	if (score / max > 0.5) return true;
 	return false;
+};
+
+export const setQuizResultsToLs = (quizResult) => {
+	const LSArr = JSON.parse(localStorage.getItem(RESULTS)) || [];
+	const index = LSArr.findIndex((item) => item.id === quizResult.id);
+	if (index < 0) {
+		LSArr.push(quizResult);
+		localStorage.setItem(RESULTS, JSON.stringify(LSArr));
+	}
 };

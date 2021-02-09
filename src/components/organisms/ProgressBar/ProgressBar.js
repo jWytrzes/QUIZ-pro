@@ -15,8 +15,6 @@ const ProgressBar = ({
 	submitQuiz,
 	result,
 }) => {
-	//TODO
-	//implement result
 	return (
 		<StyledWrapper>
 			<Button

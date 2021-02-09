@@ -6,14 +6,14 @@ import NumLabel from '../../atoms/NumLabel/NumLabel';
 import ResultLabel from '../../atoms/ResultLabel/ResultLabel';
 import { StyledWrapper, StyledP } from './styles-QuizBox';
 
-const QuizBox = ({ data }) => {
+const QuizBox = ({ data, score }) => {
 	return (
 		<StyledWrapper>
 			<NumLabel> QUIZ #{data.num} </NumLabel>
 			<H3> {data.title} </H3>
 			<StyledP> {data.questionsNum} pytań </StyledP>
-			{data.completed ? (
-				<ResultLabel points={data.completed} max={data.questionsNum} />
+			{score != null ? (
+				<ResultLabel points={score} max={data.questionsNum} />
 			) : (
 				<Button as={Link} to={`/quiz/${data.id}`}>
 					Rozpocznij <ArrowRight size={18} />

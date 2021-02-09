@@ -6,8 +6,7 @@ import MainTemplate from '../../templates/MainTemplate/MainTemplate';
 import ProgressBar from '../../organisms/ProgressBar/ProgressBar';
 import NumLabel from '../../atoms/NumLabel/NumLabel';
 import H2 from '../../atoms/H2/H2';
-import { countScore } from '../../../utils';
-import ResultBoard from '../../molecules/ResultBoard/ResultBoard';
+import { baseUrl, countScore, setQuizResultsToLs } from '../../../utils';
 
 const Quiz = () => {
 	const { id } = useParams();
@@ -50,12 +49,14 @@ const Quiz = () => {
 			const countedScore = countScore(quiz.questions);
 			setScore(countedScore);
 			let updatedQuiz = quiz;
-			updatedQuiz.questions.push({
-				id: `result-${Math.random() * 10}`,
-				score: countScore,
+			const quizResult = {
+				id: quiz.id,
+				score: countedScore,
 				max: quiz.questionsNum,
-			});
+			};
+			updatedQuiz.questions.push(quizResult);
 			setActiveQuestion(activeQuestion + 1);
+			setQuizResultsToLs(quizResult);
 		}
 	};
 

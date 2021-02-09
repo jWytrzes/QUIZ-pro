@@ -17,9 +17,10 @@ export const StyledMarkersWrapper = styled.div`
 export const StyledMarker = styled.button`
 	display: flex;
 	width: 100%;
-	margin-right: 0.3rem;
-	height: ${({ active }) => (active ? '2rem' : '1rem')};
+	margin: 0 0.3rem 0 0;
+	height: 1rem;
 	border-radius: 0.5rem;
+	transform: ${({ active }) => (active ? 'scaleY(1.5)' : 'scaleY(1)')};
 	border: 1px solid
 		${({ theme, done, result, isCorrect }) =>
 			result && isCorrect != null
@@ -38,6 +39,9 @@ export const StyledMarker = styled.button`
 			? theme.primary
 			: theme.white};
 	cursor: pointer;
+	transition: transform 0.2s ease-out, background 0.2s ease-out,
+		height 0.2s ease-out;
+	outline: none;
 
 	&:last-of-type {
 		margin-right: 0;
