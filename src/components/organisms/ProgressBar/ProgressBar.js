@@ -12,7 +12,10 @@ const ProgressBar = ({
 	activeQuestion,
 	changeQuestion,
 	submitQuiz,
+	result,
 }) => {
+	//TODO
+	//implement result
 	return (
 		<StyledWrapper>
 			<Button leftIcon={1} onClick={() => changeQuestion(activeQuestion - 1)}>
@@ -29,7 +32,6 @@ const ProgressBar = ({
 					/>
 				))}
 			</StyledMarkersWrapper>
-			{console.log(activeQuestion, questions)}
 			{activeQuestion === questions - 1 ? (
 				<Button primary={1} onClick={submitQuiz}>
 					Zakończ <Send size={18} />

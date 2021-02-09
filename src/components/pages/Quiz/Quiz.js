@@ -6,11 +6,14 @@ import MainTemplate from '../../templates/MainTemplate/MainTemplate';
 import ProgressBar from '../../organisms/ProgressBar/ProgressBar';
 import NumLabel from '../../atoms/NumLabel/NumLabel';
 import H2 from '../../atoms/H2/H2';
+import { countScore } from '../../../utils';
+import ResultBoard from '../../molecules/ResultBoard/ResultBoard';
 
 const Quiz = () => {
 	const { id } = useParams();
 	const [quiz, setQuiz] = useState(null);
 	const [activeQuestion, setActiveQuestion] = useState(null);
+	const [score, setScore] = useState(null);
 
 	useEffect(() => {
 		// TODO
@@ -18,7 +21,7 @@ const Quiz = () => {
 		const result = data.find((item) => item.id === id);
 		setQuiz(result);
 		setActiveQuestion(0);
-	}, []);
+	}, [id]);
 
 	const changeQuestion = (id) => {
 		if (id >= 0 && id < quiz.questions.length) {
@@ -26,11 +29,25 @@ const Quiz = () => {
 		}
 	};
 
-	const check = (questionId, answerId) => {};
+	const check = (questionId, answerId, value) => {
+		let updatedQuiz = JSON.parse(JSON.stringify(quiz));
+		const question = updatedQuiz.questions.find((q) => q.id === questionId);
+
+		const aId = question.answers.findIndex((a) => a.id === answerId);
+		let updatedAnswers = [...question.answers];
+		updatedAnswers[aId].checked = value;
+
+		const qId = updatedQuiz.questions.findIndex((q) => q.id === questionId);
+		let updatedQuestions = [...updatedQuiz.questions];
+		updatedQuestions[qId].answers = updatedAnswers;
+
+		updatedQuiz.questions = updatedQuestions;
+		setQuiz(updatedQuiz);
+	};
 
 	const submitQuiz = () => {
-		//TODO
-		//submit
+		const countedScore = countScore(quiz.questions);
+		setScore(countedScore);
 	};
 
 	return (
@@ -41,16 +58,21 @@ const Quiz = () => {
 						<NumLabel> Quiz #{quiz.num} </NumLabel>
 						<H2> {quiz.title} </H2>
 					</div>
-					<ActiveQuestion
-						question={quiz.questions[activeQuestion]}
-						activeNum={activeQuestion}
-						check={check}
-					/>
+					{score != null ? (
+						<ResultBoard score={score} max={quiz.questions.length} />
+					) : (
+						<ActiveQuestion
+							question={quiz.questions[activeQuestion]}
+							activeNum={activeQuestion}
+							check={check}
+						/>
+					)}
 					<ProgressBar
 						questions={quiz.questions.length}
 						activeQuestion={activeQuestion}
 						changeQuestion={changeQuestion}
 						submitQuiz={submitQuiz}
+						result={score ? true : false}
 					/>
 				</div>
 			)}

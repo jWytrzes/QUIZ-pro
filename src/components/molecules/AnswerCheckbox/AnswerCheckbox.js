@@ -8,8 +8,8 @@ const AnswerCheckbox = ({ answer, questionId, check }) => {
 				type="checkbox"
 				name={`q${questionId}`}
 				id={`q${questionId}-a${answer.id}`}
-				value={answer.checked || false}
-				onChange={() => check(questionId, answer.id)}
+				checked={answer.checked || false}
+				onChange={(e) => check(questionId, answer.id, e.target.checked)}
 			/>
 			<label htmlFor={`q${questionId}-a${answer.id}`}>
 				{answer.description}

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import H3 from '../../atoms/H3/H3';
 import NumLabel from '../../atoms/NumLabel/NumLabel';
 import AnswerCheckbox from '../../molecules/AnswerCheckbox/AnswerCheckbox';
