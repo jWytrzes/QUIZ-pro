@@ -20,7 +20,7 @@ const QuizBox = ({ data, score }) => {
 					}
 				/>
 			) : (
-				<Button as={Link} to={`/quiz/${data.id}`} primary>
+				<Button as={Link} to={`/quiz/${data.id}`} primary={1}>
 					Rozpocznij <ArrowRight size={18} />
 				</Button>
 			)}

@@ -1,7 +1,7 @@
 // export const baseUrl = 'http://localhost:8088/api/v1/';
 export const baseUrl = 'http://192.168.0.20:8088/api/v1/';
 export const RESULTS = 'QUIZ_RESULTS';
-export const DARK_THEME = false;
+export const DARK_THEME = 'DARK_THEME';
 
 export const checkIfUserAnswerIsCorrect = (question) => {
 	let correct = 0;

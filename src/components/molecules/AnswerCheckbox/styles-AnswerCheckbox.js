@@ -17,6 +17,7 @@ export const FakeInput = styled.label`
 	position: relative;
 	cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
 	opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+	flex-shrink: 0;
 
 	&::before {
 		content: '';

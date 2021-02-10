@@ -7,7 +7,7 @@ import MainTemplate from './components/templates/MainTemplate/MainTemplate';
 import { DARK_THEME } from './utils';
 import GlobalStyle from './utils/GlobalStyle';
 import routes from './utils/routes';
-import { darkTheme, lightTheme } from './utils/theme';
+import { lightTheme, darkTheme } from './utils/theme';
 
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -18,8 +18,8 @@ const App = () => {
 	};
 
 	useEffect(() => {
-		const savedTheme = localStorage.getItem(DARK_THEME);
-		savedTheme && setIsDarkTheme(savedTheme);
+		const savedTheme = JSON.parse(localStorage.getItem(DARK_THEME));
+		savedTheme != null && setIsDarkTheme(savedTheme);
 	}, []);
 
 	return (
