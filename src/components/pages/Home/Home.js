@@ -11,7 +11,7 @@ const Home = () => {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		fetch(`${baseUrl}quiz/`)
+		fetch(`${baseUrl}v1/quiz/`)
 			.then((response) => response.json())
 			.then((data) => setData(data.quizzes));
 

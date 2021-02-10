@@ -1,5 +1,5 @@
 // export const baseUrl = 'http://localhost:8088/api/v1/';
-export const baseUrl = 'http://192.168.0.20:8088/api/v1/';
+export const baseUrl = 'http://192.168.0.20:8088/api/';
 export const RESULTS = 'QUIZ_RESULTS';
 export const DARK_THEME = 'DARK_THEME';
 

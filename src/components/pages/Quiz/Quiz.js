@@ -13,7 +13,7 @@ const Quiz = () => {
 	const [score, setScore] = useState(null);
 
 	useEffect(() => {
-		fetch(`${baseUrl}quiz/${id}`)
+		fetch(`${baseUrl}v1/quiz/${id}`)
 			.then((response) => response.json())
 			.then((data) => setQuiz(data.quiz));
 		setActiveQuestion(0);
