@@ -11,9 +11,14 @@ const QuizBox = ({ data, score }) => {
 		<StyledWrapper>
 			<NumLabel> QUIZ #{data.num} </NumLabel>
 			<H3> {data.title} </H3>
-			<StyledP> {data.questionsNum} pytań </StyledP>
+			<StyledP> {data.questions.length} pytań</StyledP>
 			{score != null ? (
-				<ResultLabel points={score} max={data.questionsNum} />
+				<ResultLabel
+					points={score}
+					max={
+						score != null ? data.questions.length - 1 : data.questions.length
+					}
+				/>
 			) : (
 				<Button as={Link} to={`/quiz/${data.id}`}>
 					Rozpocznij <ArrowRight size={18} />
