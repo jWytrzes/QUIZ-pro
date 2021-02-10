@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import Button from '../../atoms/Button/Button';
 
 export const StyledWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	flex-wrap: wrap;
+
+	@media (min-width: 992px) {
+		flex-wrap: nowrap;
+	}
 `;
 
 export const StyledMarkersWrapper = styled.div`
@@ -12,6 +18,13 @@ export const StyledMarkersWrapper = styled.div`
 	justify-content: space-between;
 	margin: 0 3rem;
 	width: 100%;
+	order: 1;
+	margin-bottom: 2rem;
+
+	@media (min-width: 992px) {
+		order: unset;
+		margin-bottom: 0;
+	}
 `;
 
 export const StyledMarker = styled.button`
@@ -49,5 +62,28 @@ export const StyledMarker = styled.button`
 
 	@media (min-width: 992px) {
 		margin-right: 1rem;
+	}
+`;
+
+export const StyledButton = styled(Button)`
+	order: 2;
+	width: 47%;
+	min-width: unset;
+
+	svg {
+		transition: transform 0.2s ease-out;
+	}
+
+	&:hover {
+		svg {
+			transform: ${({ leftIcon }) =>
+				leftIcon ? 'translateX(-1rem)' : 'translateX(1rem)'};
+		}
+	}
+
+	@media (min-width: 992px) {
+		order: unset;
+		width: auto;
+		min-width: inherit;
 	}
 `;

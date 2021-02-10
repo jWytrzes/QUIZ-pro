@@ -7,6 +7,14 @@ export const StyledWrapper = styled.div`
 	box-shadow: 0 0.3rem 0.6rem ${({ theme }) => theme.shadow};
 	padding: 2rem;
 	min-height: 29.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	& > div {
+		width: 100%;
+	}
 
 	@media (min-width: 992px) {
 		padding: 4rem;

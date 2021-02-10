@@ -25,7 +25,7 @@ const Home = () => {
 		// 	.then((response) => response.json())
 		// 	.then((data) => console.log(data));
 
-		const savedResults = JSON.parse(localStorage.getItem(RESULTS));
+		const savedResults = JSON.parse(localStorage.getItem(RESULTS)) || [];
 		setLsData(savedResults);
 	}, []);
 

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
+	position: relative;
 	font-size: 1.6rem;
 	font-weight: 600;
 	padding: 1.8rem 3.2rem;
@@ -22,6 +23,14 @@ const Button = styled.button`
 		margin-left: ${({ leftIcon }) => (leftIcon ? 0 : '1.1rem')};
 		margin-right: ${({ leftIcon }) => (leftIcon ? '1.1rem' : 0)};
 		flex-shrink: 0;
+		transition: transform 0.2s ease-out;
+	}
+
+	&:hover {
+		svg {
+			transform: ${({ leftIcon }) =>
+				leftIcon ? 'translateX(-1rem)' : 'translateX(1rem)'};
+		}
 	}
 `;
 

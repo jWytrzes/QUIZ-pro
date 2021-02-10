@@ -1,11 +1,11 @@
 import React from 'react';
 import { ArrowLeft, ArrowRight, Send } from 'react-feather';
 import { checkIfUserAnswerIsCorrect } from '../../../utils';
-import Button from '../../atoms/Button/Button';
 import {
 	StyledWrapper,
 	StyledMarkersWrapper,
 	StyledMarker,
+	StyledButton,
 } from './styles-ProgressBar';
 
 const ProgressBar = ({
@@ -17,13 +17,13 @@ const ProgressBar = ({
 }) => {
 	return (
 		<StyledWrapper>
-			<Button
+			<StyledButton
 				leftIcon={1}
 				onClick={() => changeQuestion(activeQuestion - 1)}
 				disabled={activeQuestion === 0}
 			>
 				<ArrowLeft size={18} /> Poprzednie
-			</Button>
+			</StyledButton>
 			<StyledMarkersWrapper>
 				{questions.map((item, id) => {
 					let res = null;
@@ -44,17 +44,17 @@ const ProgressBar = ({
 				})}
 			</StyledMarkersWrapper>
 			{!result && activeQuestion === questions.length - 1 ? (
-				<Button primary={true} onClick={submitQuiz}>
+				<StyledButton primary={true} onClick={submitQuiz}>
 					Zakończ <Send size={18} />
-				</Button>
+				</StyledButton>
 			) : (
-				<Button
+				<StyledButton
 					primary={true}
 					onClick={() => changeQuestion(activeQuestion + 1)}
 					disabled={result && activeQuestion === questions.length - 1}
 				>
 					Następne <ArrowRight size={18} />
-				</Button>
+				</StyledButton>
 			)}
 		</StyledWrapper>
 	);
