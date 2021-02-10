@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import data from '../../../utils/data';
 import ActiveQuestion from '../../organisms/ActiveQuestion/ActiveQuestion';
 import MainTemplate from '../../templates/MainTemplate/MainTemplate';
 import ProgressBar from '../../organisms/ProgressBar/ProgressBar';
@@ -15,14 +14,9 @@ const Quiz = () => {
 	const [score, setScore] = useState(null);
 
 	useEffect(() => {
-		// TODO
-		//fetch quiz
 		fetch(`${baseUrl}quiz/${id}`)
 			.then((response) => response.json())
 			.then((data) => setQuiz(data.quiz));
-
-		// const result = data.find((item) => item.id === id);
-		// setQuiz(result);
 		setActiveQuestion(0);
 	}, [id]);
 
@@ -56,7 +50,7 @@ const Quiz = () => {
 			const quizResult = {
 				id: quiz.id,
 				score: countedScore,
-				max: quiz.questionsNum,
+				max: quiz.questions.length,
 			};
 			updatedQuiz.questions.push(quizResult);
 			setActiveQuestion(activeQuestion + 1);
@@ -77,14 +71,16 @@ const Quiz = () => {
 						activeNum={activeQuestion}
 						check={check}
 						score={score}
-						max={quiz.questionsNum}
+						max={
+							score != null ? quiz.questions.length - 1 : quiz.questions.length
+						}
 					/>
 					<ProgressBar
 						questions={quiz.questions}
 						activeQuestion={activeQuestion}
 						changeQuestion={changeQuestion}
 						submitQuiz={submitQuiz}
-						result={score != null ? true : false}
+						result={score != null ? 1 : 0}
 					/>
 				</div>
 			)}

@@ -1,7 +1,6 @@
 const routes = {
-  home: "/",
-  quiz: "/quiz/:id",
-  creator: "/create",
+	home: '/',
+	quiz: '/quiz/:id',
 };
 
 export default routes;
