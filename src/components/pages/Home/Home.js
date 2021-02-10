@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
+import { RefreshCcw } from 'react-feather';
 import { baseUrl, RESULTS } from '../../../utils';
 import H2 from '../../atoms/H2/H2';
 import QuizBox from '../../molecules/QuizBox/QuizBox';
 import GridTemplate from '../../templates/GridTemplate/GridTemplate';
-import MainTemplate from '../../templates/MainTemplate/MainTemplate';
-import { StyledHeading } from './styles-Home';
+import { StyledHeading, StyledButton } from './styles-Home';
 
 const Home = () => {
 	const [lSData, setLsData] = useState([]);
@@ -19,10 +19,26 @@ const Home = () => {
 		setLsData(savedResults);
 	}, []);
 
+	const clearData = () => {
+		if (lSData.length) {
+			if (
+				window.confirm(
+					'Czy na pewno chcesz usunąć wyniki? Tej operacji nie można cofnąć.',
+				)
+			) {
+				localStorage.removeItem(RESULTS);
+				setLsData([]);
+			}
+		}
+	};
+
 	return (
-		<MainTemplate>
+		<>
 			<StyledHeading>
 				<H2> Dostępne quizy </H2>
+				<StyledButton onClick={clearData}>
+					Wyczyść dane <RefreshCcw size={18} />
+				</StyledButton>
 			</StyledHeading>
 			<GridTemplate>
 				{data.map((quiz) => {
@@ -31,11 +47,10 @@ const Home = () => {
 					if (lsObject) {
 						score = lsObject.score;
 					}
-
 					return <QuizBox key={quiz.id} data={quiz} score={score} />;
 				})}
 			</GridTemplate>
-		</MainTemplate>
+		</>
 	);
 };
 

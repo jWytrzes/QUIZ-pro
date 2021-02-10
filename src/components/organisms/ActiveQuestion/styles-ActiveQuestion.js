@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-	background-color: ${({ theme }) => theme.white};
+	background-color: ${({ theme }) => theme.base2};
 	border-radius: 0.7rem;
 	margin: 2rem 0;
 	box-shadow: 0 0.3rem 0.6rem ${({ theme }) => theme.shadow};

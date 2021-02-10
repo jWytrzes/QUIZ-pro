@@ -9,7 +9,7 @@ import { StyledWrapper, StyledP } from './styles-QuizBox';
 const QuizBox = ({ data, score }) => {
 	return (
 		<StyledWrapper>
-			<NumLabel> QUIZ #{data.num} </NumLabel>
+			<NumLabel> QUIZ #{data.id} </NumLabel>
 			<H3> {data.title} </H3>
 			<StyledP> {data.questions.length} pytań</StyledP>
 			{score != null ? (
@@ -20,7 +20,7 @@ const QuizBox = ({ data, score }) => {
 					}
 				/>
 			) : (
-				<Button as={Link} to={`/quiz/${data.id}`}>
+				<Button as={Link} to={`/quiz/${data.id}`} primary>
 					Rozpocznij <ArrowRight size={18} />
 				</Button>
 			)}

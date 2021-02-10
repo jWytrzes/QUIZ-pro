@@ -1,10 +1,10 @@
-import TopBar from '../../molecules/TopBar/TopBar';
+import TopBar from '../../organisms/TopBar/TopBar';
 import { StyledInner } from './styles-MainTemplate';
 
-const MainTemplate = ({ children }) => {
+const MainTemplate = ({ isDarkTheme, setIsDarkTheme, children }) => {
 	return (
 		<div>
-			<TopBar />
+			<TopBar isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
 			<StyledInner>{children}</StyledInner>
 		</div>
 	);

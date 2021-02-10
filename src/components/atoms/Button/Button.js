@@ -12,12 +12,13 @@ const Button = styled.button`
 	font-family: inherit;
 	background-color: ${({ primary, theme }) =>
 		primary ? theme.primary : theme.secondary};
-	color: ${({ primary, theme }) => (primary ? theme.white : theme.primary)};
+	color: ${({ primary, theme }) => (primary ? '#fff' : theme.primary)};
 	text-decoration: none;
 	min-width: 17.9rem;
 	justify-content: center;
 	opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 	cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
+	line-height: 1;
 
 	svg {
 		margin-left: ${({ leftIcon }) => (leftIcon ? 0 : '1.1rem')};

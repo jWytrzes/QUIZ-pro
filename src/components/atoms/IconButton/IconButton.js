@@ -19,7 +19,7 @@ const IconButton = styled.button`
 			? theme.successSecondary
 			: theme.errorSecondary};
 	color: ${({ primary, success, theme }) =>
-		primary ? theme.white : success ? theme.success : theme.error};
+		primary ? theme.base2 : success ? theme.success : theme.error};
 	border: 1px solid
 		${({ primary, success, theme }) =>
 			primary ? theme.primary : success ? theme.success : theme.error};
