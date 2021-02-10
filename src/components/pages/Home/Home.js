@@ -13,17 +13,16 @@ import { StyledHeading } from './styles-Home';
 const Home = () => {
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 	const [lSData, setLsData] = useState([]);
+	const [data, setData] = useState([]);
 
 	const togglePopup = () => {
 		setIsPopupVisible(!isPopupVisible);
 	};
 
 	useEffect(() => {
-		console.log(baseUrl);
-		//TODO
-		// fetch(`${baseUrl}quiz/`)
-		// 	.then((response) => response.json())
-		// 	.then((data) => console.log(data));
+		fetch(`${baseUrl}quiz/`)
+			.then((response) => response.json())
+			.then((data) => setData(data.quizzes));
 
 		const savedResults = JSON.parse(localStorage.getItem(RESULTS)) || [];
 		setLsData(savedResults);

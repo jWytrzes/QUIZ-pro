@@ -17,8 +17,12 @@ const Quiz = () => {
 	useEffect(() => {
 		// TODO
 		//fetch quiz
-		const result = data.find((item) => item.id === id);
-		setQuiz(result);
+		fetch(`${baseUrl}quiz/${id}`)
+			.then((response) => response.json())
+			.then((data) => setQuiz(data.quiz));
+
+		// const result = data.find((item) => item.id === id);
+		// setQuiz(result);
 		setActiveQuestion(0);
 	}, [id]);
 
