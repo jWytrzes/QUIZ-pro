@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ActiveQuestion from '../../organisms/ActiveQuestion/ActiveQuestion';
-import MainTemplate from '../../templates/MainTemplate/MainTemplate';
 import ProgressBar from '../../organisms/ProgressBar/ProgressBar';
 import NumLabel from '../../atoms/NumLabel/NumLabel';
 import H2 from '../../atoms/H2/H2';
@@ -59,11 +58,11 @@ const Quiz = () => {
 	};
 
 	return (
-		<MainTemplate>
+		<>
 			{quiz && (
 				<div>
 					<div>
-						<NumLabel> Quiz #{quiz.num} </NumLabel>
+						<NumLabel> Quiz #{quiz.id} </NumLabel>
 						<H2> {quiz.title} </H2>
 					</div>
 					<ActiveQuestion
@@ -84,7 +83,7 @@ const Quiz = () => {
 					/>
 				</div>
 			)}
-		</MainTemplate>
+		</>
 	);
 };
 

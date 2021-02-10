@@ -16,14 +16,14 @@ export const StyledMarkersWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin: 0 3rem;
+	margin: 0 0 2rem;
 	width: 100%;
 	order: 1;
-	margin-bottom: 2rem;
 
 	@media (min-width: 992px) {
 		order: unset;
 		margin-bottom: 0;
+		margin: 0 3rem;
 	}
 `;
 
@@ -50,7 +50,7 @@ export const StyledMarker = styled.button`
 				: theme.error
 			: done
 			? theme.primary
-			: theme.white};
+			: theme.base2};
 	cursor: pointer;
 	transition: transform 0.2s ease-out, background 0.2s ease-out,
 		height 0.2s ease-out;
