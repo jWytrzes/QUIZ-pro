@@ -1,6 +1,7 @@
 # Uruchomienie projektu
 
-Aby uruchomić projekt, w linii poleceń należy wykonać komendę:
+Aby uruchomić projekt, w linii poleceń należy wykonać komendy:
+`yarn install`
 `yarn start`
 
 W zależności od sposobu uruchomienia backendu, adres URL do API znajduje się w stałej baseUrl w pliku
